@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KSML WebView</title>
+  </head>
+
+  <body>
+    <script>
+      var customCSS =
+        "#gravitoCMP-accordion-customPurposes-1 span:first-of-type{font-weight:bold;} .cmplista {font-family: gravitoFont; font-size: 14px;}.gravitoCMP-tab-button {border-radius:0px !important;}.gravitoCMP-accordion--first {display:none !important;}.gravitoCMP-primaryBtn{text-transform:uppercase;}.gravitoCMP-secondaryBtn {color:#1F6DC5 !important; border: 1px solid !important; text-transform:uppercase !important} .gravitoCMP-button {border-radius: 0px !important;font-size:14px !important;} .gravitoCMP-header-logo-div {height: 115px !important;} .gravitoCMP-logo { height: 100px !important; width: auto !important; position: relative !important; margin-left:-95px !important; left: 50% !important;} .gravitoCMP-layer-heading {text-align:center; padding-top: 10px !important; line-height:2.2rem !important;} .gravitoCMP-paragraph{line-height:1.6rem !important} .gravitoCMP-link{color:#0010cc !important;} .gravitoCMP-list-heading {padding: 0px 0px 0px 10px !important; line-height:1.6rem !important;} .gravitoCMP-accordion-content{line-height: 1.6rem !important;}";
+      var gravitoCMPConfig = {
+        settings: {
+          isWebView: true,
+          type: "TCF",
+          version: "bundle-v3test",
+          componentURL: "https://cdn.gravito.net/webview",
+          sdkVersion: 2,
+        },
+        core: {
+          cookieName: "TcString",
+          cookieExpiry: 365,
+          isServiceSpecific: true,
+          settingBtnClassname: "manageSettings",
+          version: 2,
+          languageCode: "fi",
+          withBackendIntegration: true,
+          syncEvents: ["cmpui:closed", "layer1:opt-in:all"],
+          purposeOneTreatment: false,
+          publisherCountryCode: "FI",
+          googleTcfId: 755,
+          syncAfter: 1800,
+          allowedVendors: [2, 8, 11],
+          purposes: [
+            {
+              type: "purposes",
+              id: 1,
+            },
+            {
+              type: "stacks",
+              id: 2,
+            },
+            {
+              type: "stacks",
+              id: 10,
+            },
+            {
+              type: "stacks",
+              id: 16,
+            },
+          ],
+          specialFeatures: [1, 2],
+          specialPurposes: [1, 2],
+          features: [1, 2, 3],
+          vendors: [
+            755, 50, 45, 52, 32, 253, 10, 69, 76, 412, 126, 278, 394, 385, 79,
+            91, 16, 209, 11, 30, 128, 140, 21, 667, 264, 130, 25, 1, 12, 8, 387,
+            238, 15, 57, 18, 132, 273, 945, 919, 887, 290, 111, 276,
+          ],
+          nonTCFVendors: [
+            {
+              type: "non-tcf-vendors",
+              id: 1,
+              name: "Facebook",
+              description:
+                'Facebook kerÃ¤Ã¤ tietoa verkkovierailusta ja sisÃ¤llÃ¶istÃ¤ myÃ¶s Facebookin ulkopuolella. KerÃ¤ttyjÃ¤ tietoja kÃ¤ytetÃ¤Ã¤n mainonnan kohdentamiseen. Voit antaa suostumuksesi â€Tarkoitukset ja ominaisuudetâ€ -vÃ¤lilehden valinnoissa (â€mainosevÃ¤steetâ€).<p class="gravitoCMP-paragraph gravitoCMP-text gravitoCMP-text--regular">Lue lisÃ¤Ã¤: <a href="https://www.facebook.com/policy/cookies">https://www.facebook.com/policy/cookies</a>',
+              isConsentable: false,
+            },
+            {
+              type: "non-tcf-vendors",
+              id: 2,
+              name: "Hotjar",
+              description:
+                'Hotjarin avulla voimme kehittÃ¤Ã¤ sivustojamme sinua paremmin palvelevaksi. Voimme esimerkiksi rakentaa ns. lÃ¤mpÃ¶karttoja, jotka nÃ¤yttÃ¤vÃ¤t, mitÃ¤ sivuelementtejÃ¤ kÃ¤yttÃ¤jÃ¤t klikkaavat, miten he sivuilla liikkuvat ja kuinka pitkÃ¤lle he keskimÃ¤Ã¤rin sivuilla etenevÃ¤t. Voit antaa suostumuksesi â€Tarkoitukset ja ominaisuudetâ€ -vÃ¤lilehden valinnoissa (â€analytiikka- ja yleisÃ¶mittausevÃ¤steetâ€).<p class="gravitoCMP-paragraph gravitoCMP-text gravitoCMP-text--regular">Lue lisÃ¤Ã¤: <a href="https://www.hotjar.com/privacy/">https://www.hotjar.com/privacy/</a>',
+              isConsentable: false,
+            },
+            {
+              type: "non-tcf-vendors",
+              id: 3,
+              name: "Twitter",
+              description:
+                'Twitter kerÃ¤Ã¤ tietoa verkkovierailusta ja sisÃ¤llÃ¶istÃ¤ myÃ¶s Twitterin ulkopuolella. TwitteriÃ¤ kÃ¤ytetÃ¤Ã¤n mainontaan ja kerÃ¤ttyjÃ¤ tietoja parempaan mainonnan kohdentamiseen. Voit antaa suostumuksesi â€Tarkoitukset ja ominaisuudetâ€ -vÃ¤lilehden valinnoissa (â€mainosevÃ¤steetâ€).<p class="gravitoCMP-paragraph gravitoCMP-text gravitoCMP-text--regular">Lue lisÃ¤Ã¤: <a href="https://twitter.com/en/privacy">https://twitter.com/en/privacy</a>',
+              isConsentable: false,
+            },
+            {
+              type: "non-tcf-vendors",
+              id: 4,
+              name: "Chartbeat",
+              description:
+                'Chartbeat on sisÃ¤ltÃ¶analyysin tyÃ¶kalu, jonka avulla voimme tarkastella kullakin sivustollamme parhaillaan olevien selainten mÃ¤Ã¤rÃ¤Ã¤ sekÃ¤ sivustolla liikkumista.<p class="gravitoCMP-paragraph gravitoCMP-text gravitoCMP-text--regular">Lue lisÃ¤Ã¤: <a href="https://chartbeat.com/privacy/">https://chartbeat.com/privacy/</a>',
+              isConsentable: false,
+            },
+          ],
+          customPurposes: [
+            {
+              type: "customPurpose",
+              id: 1,
+              name: "VÃ¤lttÃ¤mÃ¤ttÃ¶mÃ¤t evÃ¤steet",
+              description:
+                "NÃ¤mÃ¤ evÃ¤steet ovat vÃ¤lttÃ¤mÃ¤ttÃ¶miÃ¤ sivustomme toiminnan kannalta, ja ne ovat kÃ¤ytÃ¶ssÃ¤ aina. Ilman nÃ¤itÃ¤ evÃ¤steitÃ¤ emme voi esimerkiksi muistaa kirjautumistasi tai tÃ¤ssÃ¤ evÃ¤stesuostumustyÃ¶kalussa tekemiÃ¤si valintoja.",
+              descriptionLegal:
+                "NÃ¤mÃ¤ evÃ¤steet ovat vÃ¤lttÃ¤mÃ¤ttÃ¶miÃ¤ sivustomme toiminnan kannalta, ja ne ovat kÃ¤ytÃ¶ssÃ¤ aina. Ilman nÃ¤itÃ¤ evÃ¤steitÃ¤ emme voi esimerkiksi muistaa kirjautumistasi tai tÃ¤ssÃ¤ evÃ¤stesuostumustyÃ¶kalussa tekemiÃ¤si valintoja.",
+              isConsentable: false,
+              isLegitimate: false,
+            },
+            {
+              type: "customPurpose",
+              id: 2,
+              name: "Analytiikka- ja yleisÃ¶mittausevÃ¤steet",
+              description:
+                "NÃ¤mÃ¤ evÃ¤steet auttavat meitÃ¤ laskemaan sivustollamme vierailevat kÃ¤vijÃ¤t ja ymmÃ¤rtÃ¤mÃ¤Ã¤n, miten sivustoamme kÃ¤ytetÃ¤Ã¤n. NÃ¤itÃ¤ evÃ¤steitÃ¤ asettavat mm. Google (Google Analytics), Hotjar ja Chartbeat.",
+              descriptionLegal:
+                "NÃ¤mÃ¤ evÃ¤steet auttavat meitÃ¤ laskemaan sivustollamme vierailevat kÃ¤vijÃ¤t ja ymmÃ¤rtÃ¤mÃ¤Ã¤n, miten sivustoamme kÃ¤ytetÃ¤Ã¤n. NÃ¤itÃ¤ evÃ¤steitÃ¤ asettavat mm. Google (Google Analytics), Hotjar ja Chartbeat.",
+              isConsentable: true,
+              isLegitimate: false,
+            },
+            {
+              type: "customPurpose",
+              id: 3,
+              name: "MainosevÃ¤steet",
+              description:
+                "NÃ¤iden evÃ¤steiden avulla voidaan kerÃ¤tÃ¤ tietoa siitÃ¤, millaisista sisÃ¤llÃ¶istÃ¤ ja tuotteista olet kiinnostunut. EvÃ¤steiden avulla voidaan muodostaa profiili kiinnostuksenkohteistasi ja kohdentaa sinulle mainoksia. NÃ¤itÃ¤ evÃ¤steitÃ¤ asettavat mm. Facebook ja Twitter.",
+              descriptionLegal:
+                "NÃ¤iden evÃ¤steiden avulla voidaan kerÃ¤tÃ¤ tietoa siitÃ¤, millaisista sisÃ¤llÃ¶istÃ¤ ja tuotteista olet kiinnostunut. EvÃ¤steiden avulla voidaan muodostaa profiili kiinnostuksenkohteistasi ja kohdentaa sinulle mainoksia. NÃ¤itÃ¤ evÃ¤steitÃ¤ asettavat mm. Facebook ja Twitter.",
+              isConsentable: true,
+              isLegitimate: false,
+            },
+          ],
+          publisherRestrictions: [
+            {
+              purposeID: 1,
+              restrictionType: "REQUIRE_CONSENT",
+              vendors: [6, 12],
+            },
+            {
+              purposeID: 1,
+              restrictionType: "REQUIRE_CONSENT",
+              vendors: [8],
+            },
+            {
+              purposeID: 2,
+              restrictionType: "REQUIRE_CONSENT",
+              vendors: [8],
+            },
+          ],
+        },
+        text: {
+          firstLayer: {
+            title: "",
+            introductionText:
+              "KÃ¤ytÃ¤mme evÃ¤steitÃ¤ tarjotaksemme parempia palveluita. Valitsemalla â€HyvÃ¤ksy kaikkiâ€ annat suostumuksesi siihen, ettÃ¤ tÃ¤llÃ¤ sivustolla Mediatalo Keskisuomalainen ja sen valikoidut <span id='partners-link'>kumppanit</span>:",
+            consentableItemDescription: "",
+            legalFooter:
+              '<ul class="cmplista"><li>Tallentavat tietoja laitteelle ja/tai kÃ¤yttÃ¤vÃ¤t laitteella olevia tietoja sekÃ¤ kÃ¤sittelevÃ¤t henkilÃ¶tietoja, kuten tietoa vierailemistasi sivuista.<\/li><li>KÃ¤yttÃ¤vÃ¤t tietoja personoitujen mainosten ja sisÃ¤llÃ¶n nÃ¤yttÃ¤miseen, mainonnan ja sisÃ¤llÃ¶n mittaukseen, kÃ¤yttÃ¤jÃ¤ymmÃ¤rrykseen sekÃ¤ tuotekehitykseen.<\/li><li>KÃ¤yttÃ¤vÃ¤t edellÃ¤ mainittuihin tarkoituksiin tarkkoja sijaintitietoja ja laitteen tunnistamista laitetta skannaamalla.<\/li><li>Mediatalo Keskisuomalainen kÃ¤yttÃ¤Ã¤ evÃ¤steitÃ¤ myÃ¶s sivuston toiminallisuuksien toteuttamiseen, sivuston kÃ¤ytÃ¶n analysointiin ja yleisÃ¶mittaukseen sekÃ¤ sisÃ¤llÃ¶n ja mainonnan kohdentamiseen.<p>Voit tehdÃ¤ tarkempia valintoja ja vastustaa oikeutettuun etuun liittyvÃ¤Ã¤ kÃ¤sittelyÃ¤ â€Muokkaa asetuksiaâ€ -painikkeella. Voit muuttaa valintojasi, kuten peruuttaa antamasi suostumuksen, valitsemalla sivuston alalaidasta â€EvÃ¤steasetuksetâ€.<\/li><\/ul>',
+            privacyPolicyUrl:
+              "https://www.keskisuomalainen.com/tietosuojalauseke/",
+            privacyLabel: "Tietosuojalauseke",
+            actions: ["Muokkaa asetuksia", "HyvÃ¤ksy kaikki"],
+          },
+          secondLayer: {
+            title: "Asetukset",
+            introductionText:
+              "EvÃ¤steet auttavat meitÃ¤ palvelemaan sinua paremmin. Valitse alla olevalta listalta haluamasi tarkoitukset",
+            tabLabels: ["Tarkoitukset ja ominaisuudet", "Toimittajat"],
+            checkBoxLabels: {
+              consent: "Suostumus",
+              legitimateInterest: "Oikeutettu etu",
+            },
+            actions: ["HyvÃ¤ksy kaikki", "HyvÃ¤ksy valitut", "EstÃ¤ kaikki"],
+          },
+          thirdLayer: {
+            confirmationForUncheck: {
+              heading: "Oletko varma ettÃ¤ haluat olla antamatta suostumusta?",
+              paragraphs: [
+                "NÃ¤mÃ¤ evÃ¤steet tai muut tekniset keinot ovat tÃ¤rkeitÃ¤ parhaan ja personoidun kÃ¤yttÃ¤jÃ¤kokemuksen tuottamiseksi.",
+              ],
+            },
+            confirmationForAcceptSelected: {
+              heading: "Oletko varma ettÃ¤ haluat olla antamatta suostumusta?",
+              paragraphs: [
+                "NÃ¤mÃ¤ evÃ¤steet tai muut tekniset keinot ovat tÃ¤rkeitÃ¤ parhaan ja personoidun kÃ¤yttÃ¤jÃ¤kokemuksen tuottamiseksi.",
+                "Ilman evÃ¤steitÃ¤ tai muita vastaavia teknisiÃ¤ keinoja on kykymme kehittÃ¤Ã¤ palveluitamme ja personoida kÃ¤yttÃ¶kokemustasi vaikeampaa, mistÃ¤ johtuen voi olla ettÃ¤ jotkin ominaisuudet ovat pois kÃ¤ytÃ¶stÃ¤ ja kÃ¤yttÃ¶kokemuksesi voi olla heikompi.",
+              ],
+            },
+            actions: ["Peruuta", "KyllÃ¤"],
+          },
+
+          commonTerms: {
+            purposes: "Tarkoitukset",
+            consent: "Suostumus",
+            legitimateInterest: "Oikeutettu etu",
+            specialPurposes: "Erityiset tarkoitukset",
+            specialFeatures: "Erityisominaisuudet",
+            features: "Ominaisuudet",
+            policyURl: "Tietosuojaselosteen osoite",
+            nonTCFVendors:
+              'Toimittajat, jotka eivÃ¤t kuulu IAB:n TCF-verkostoon<p><div class="gravitoCMP-text--regular">Alla luetellut toimittajat eivÃ¤t ole IAB:n lÃ¤pinÃ¤kyvyyttÃ¤ ja suostumusta koskevan itsesÃ¤Ã¤ntelyn (Transparency and Consent Framework, TCF) piirissÃ¤. Voit pÃ¤Ã¤ttÃ¤Ã¤ suostumuksen antamisesta evÃ¤steiden asettamiseen ja niillÃ¤ kerÃ¤ttyjen tietojen hyÃ¶dyntÃ¤miseen \â€Tarkoitukset ja ominaisuudet\â€ -vÃ¤lilehden kohdassa \â€Mediatalo Keskisuomalaisen evÃ¤steet\â€.<\/div><\/p>',
+            vendors: "Toimittajat",
+            customPurposes: "Mediatalo Keskisuomalaisen evÃ¤steet",
+            cookieMaxAge: "EvÃ¤steen enimmÃ¤isikÃ¤ (sekuntia)",
+            disclouserDetails: "Yksityiskohdat",
+            disclouserFetchingError:
+              "Virhe toimittajan lisÃ¤tietojen noutamisessa",
+            disclouserHeaderIdentifier: "Tunniste",
+            disclouserHeaderDomain: "Verkkotunnus",
+            disclouserHeaderType: "Tyyppi",
+            disclosureHeaderMaxAge: "Korkein ikÃ¤ (s)",
+            disclosureHeaderPurpose: "Tarkoitukset",
+          },
+        },
+        style: {
+          logoUrl:
+            "https://cdn.media.fi/gravito/mediatalo-keskisuomalainen.png",
+          primaryColor: "#1F6DC5",
+          secondaryColor: "#FFFFFF",
+          fonts: [
+            {
+              url: "https://fonts.gstatic.com/s/manrope/v1/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk79FN_M-bnBeA.woff2",
+              unicodeRange:
+                "U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;",
+            },
+            {
+              url: "https://fonts.gstatic.com/s/manrope/v1/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk79FN_C-bk.woff2",
+              unicodeRange:
+                "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;",
+            },
+          ],
+          customCSS: customCSS,
+          consentInputType: "toggle",
+          useAccordionForPurpose: true,
+          layoutType: "2-tabs",
+          disableConfirmationModal: true,
+        },
+      };
+      window.gravitoCMPConfig = gravitoCMPConfig;
+      var gravitoSDKTag = document.createElement("script");
+      gravitoSDKTag.src = "https://cdn.gravito.net/sdkv2/latest/sdk.js";
+      gravitoSDKTag.onload = function () {
+        window.gravito.init("tcfCMP");
+      };
+      document.body.appendChild(gravitoSDKTag);
+    </script>
+  </body>
+</html>
