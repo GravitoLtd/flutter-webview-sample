@@ -121,8 +121,7 @@ class _WebViewExampleState extends State<WebViewExample> {
           // );
         },
       )
-      ..loadRequest(Uri.parse(
-          'https://cdn.gravito.net/webview/ksml.html?platform=flutter'));
+      ..loadRequest(Uri.parse('ENTER_YOUR_URL'));
 
     // #enddocregion webview_controller
   }
